@@ -16,6 +16,21 @@ const columns = [
   { label: 'city', sortField: 'address.city' },
 ];
 
+function fieldReducer(fieldValue = '🍔', fieldName) {
+  switch (fieldName) {
+    case 'name':
+      return `🌄 ${fieldValue}`;
+    case 'username':
+      return `📝 ${fieldValue}`;
+    case 'email':
+      return (
+        <div style={{ color: 'orange', fontStyle: 'italic' }}>{fieldValue}</div>
+      );
+    default:
+      return fieldValue;
+  }
+}
+
 class App extends Component {
   state = { data: [], loading: true };
   async componentDidMount() {
@@ -59,7 +74,10 @@ class App extends Component {
                       className={styles.body_row_item}
                       style={{ flex: columnFlex[index] }}
                     >
-                      {getObjectPropertyByString(row, sortField)}
+                      {fieldReducer(
+                        getObjectPropertyByString(row, sortField),
+                        sortField,
+                      )}
                     </div>
                   ))}
                 </div>
