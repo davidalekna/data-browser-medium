@@ -29,7 +29,10 @@ class App extends Component {
   }
   render() {
     return (
-      <DataBrowser columns={columns}>
+      <DataBrowser
+        initialColumnFlex={['0 0 25%', '1 1 35%', '0 0 20%', '0 0 20%']}
+        columns={columns}
+      >
         {() => (
           <div className={styles.table}>
             <div className={styles.head}>
