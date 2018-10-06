@@ -3,7 +3,9 @@ import DataBrowser from 'react-data-browser';
 import axios from 'axios';
 import styles from './App.module.css';
 
-const api = axios.instance('https://jsonplaceholder.typicode.com/');
+const api = axios.create({
+  baseURL: 'https://jsonplaceholder.typicode.com/',
+});
 
 const columns = [
   { label: 'name', sortField: 'name', isLocked: true },
