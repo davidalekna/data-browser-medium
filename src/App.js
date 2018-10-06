@@ -3,7 +3,7 @@ import DataBrowser from 'react-data-browser';
 import axios from 'axios';
 import styles from './App.module.css';
 
-const instance = axios.instance('https://jsonplaceholder.typicode.com/');
+const api = axios.instance('https://jsonplaceholder.typicode.com/');
 
 const columns = [
   { label: 'name', sortField: 'name', isLocked: true },
@@ -18,8 +18,8 @@ class App extends Component {
   state = { data: [], loading: true };
   async componentDidMount() {
     const [users, albums] = await Promise.all([
-      instance.get('users'),
-      instance.get('photos?albumId=1'),
+      api.get('users'),
+      api.get('photos?albumId=1'),
     ]);
     const data = users.data.map(user => ({
       ...user,
