@@ -1,26 +1,30 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import DataBrowser from 'react-data-browser';
+import styles from './App.module.css';
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
+      <DataBrowser columns={[]}>
+        {() => (
+          <div className={styles.table}>
+            <div className={styles.head}>
+              <div className={styles.head_row}>
+                <div className={styles.head_row_item}>
+                  head column titles will go here
+                </div>
+              </div>
+            </div>
+            <div className={styles.body}>
+              <div className={styles.body_row}>
+                <div className={styles.body_row_item}>
+                  body row names will go here
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
+      </DataBrowser>
     );
   }
 }

@@ -1,0 +1,60 @@
+.table {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: none;
+  width: 100vw;
+  height: 100vh;
+}
+
+.head {
+  display: flex;
+  flex: 0 0 auto;
+  height: 46px;
+  color: black;
+  border-bottom: 1px solid #ccc;
+  padding: 0 5px;
+  font-size: 12px;
+}
+
+.head_row {
+  display: flex;
+  text-transform: uppercase;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+}
+
+.head_row_item {
+  display: flex;
+  text-transform: uppercase;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+  overflow-x: auto;
+  padding: 0 5px;
+}
+
+.body_row {
+  display: flex;
+  flex: 0 0 auto;
+  border-bottom: 1px solid #eee;
+}
+
+.body_row_item {
+  display: flex;
+  height: 46px;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 0 10px;
+  font-size: 14px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
