@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import DataBrowser from 'react-data-browser';
+import DataBrowser, { getObjectPropertyByString } from 'react-data-browser';
 import axios from 'axios';
 import styles from './App.module.css';
 
@@ -51,11 +51,19 @@ class App extends Component {
               </div>
             </div>
             <div className={styles.body}>
-              <div className={styles.body_row}>
-                <div className={styles.body_row_item}>
-                  body row names will go here
+              {this.state.data.map((row, key) => (
+                <div key={key} className={styles.body_row}>
+                  {visibleColumns.map(({ label, sortField }, index) => (
+                    <div
+                      key={sortField}
+                      className={styles.body_row_item}
+                      style={{ flex: columnFlex[index] }}
+                    >
+                      {getObjectPropertyByString(row, sortField)}
+                    </div>
+                  ))}
                 </div>
-              </div>
+              ))}
             </div>
           </div>
         )}
