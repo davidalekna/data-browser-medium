@@ -3,7 +3,9 @@ import DataBrowser from 'react-data-browser';
 import axios from 'axios';
 import styles from './App.module.css';
 
-const api = axios.instance('https://jsonplaceholder.typicode.com/');
+const api = axios.create({
+  baseURL: 'https://jsonplaceholder.typicode.com/',
+});
 
 const columns = [
   { label: 'name', sortField: 'name', isLocked: true },
@@ -33,13 +35,19 @@ class App extends Component {
         initialColumnFlex={['0 0 25%', '1 1 35%', '0 0 20%', '0 0 20%']}
         columns={columns}
       >
-        {() => (
+        {({ columnFlex, visibleColumns }) => (
           <div className={styles.table}>
             <div className={styles.head}>
               <div className={styles.head_row}>
-                <div className={styles.head_row_item}>
-                  head column titles will go here
-                </div>
+                {visibleColumns.map((cell, index) => (
+                  <div
+                    key={index}
+                    className={styles.head_row_item}
+                    style={{ flex: columnFlex[index] }}
+                  >
+                    {cell.label}
+                  </div>
+                ))}
               </div>
             </div>
             <div className={styles.body}>
