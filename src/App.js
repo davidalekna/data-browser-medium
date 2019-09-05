@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-import DataBrowser, { getObjectPropertyByString } from 'react-data-browser';
+import DataBrowser, {
+  getObjectPropertyByString,
+} from '@alekna/react-data-browser';
 import axios from 'axios';
 import styles from './App.module.css';
 
