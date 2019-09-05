@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import DataBrowser from 'react-data-browser';
-import axios from 'axios';
+import DataBrowser from '@alekna/react-data-browser';
 import styles from './App.module.css';
 
 class App extends Component {
